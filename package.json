@@ -1,17 +1,31 @@
 {
-  "name": "node-service",
-  "version": "1.0.0",
-  "description": "'Hello, World!' Node.js HTTP service",
-  "type": "module",
-  "engines": {
-    "node": ">=22.18.0"
-  },
-  "scripts": {
-    "start": "node --env-file=.env server.ts",
-    "test": "npm ci && tsc --noEmit"
-  },
-  "devDependencies": {
-    "@types/node": "^22.19.1",
-    "typescript": "^5.7.0"
-  }
+    "name": "node-service",
+    "version": "1.0.0",
+    "description": "'Hello, World!' Node.js HTTP service",
+    "type": "module",
+    "engines": {
+        "node": ">=22.18.0"
+    },
+    "scripts": {
+        "start": "node --env-file=.env server.ts",
+        "start:fix": "npm run audit:fix && npm update && npm run lint:fix && npm run format:fix && npm start",
+        "audit:ci": "npm audit --audit-level=high",
+        "audit:fix": "npm audit fix",
+        "lint:ci": "eslint . --max-warnings=0",
+        "lint:fix": "eslint . --fix",
+        "format:fix": "prettier --write .",
+        "format:ci": "prettier --check .",
+        "test": "npm run audit:ci && npm ci && npm run lint:ci && npm run format:ci && tsc --noEmit"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.1",
+        "@types/node": "^22.19.1",
+        "eslint": "^9.39.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.4",
+        "globals": "^16.5.0",
+        "prettier": "^3.6.2",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.47.0"
+    }
 }
