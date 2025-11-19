@@ -1,0 +1,17 @@
+{
+  "name": "node-service",
+  "version": "1.0.0",
+  "description": "'Hello, World!' Node.js HTTP service",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "start": "node --env-file=.env server.ts",
+    "test": "npm ci && tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.1",
+    "typescript": "^5.7.0"
+  }
+}
