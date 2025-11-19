@@ -1,14 +1,6 @@
 {
     "permissions": {
-        "allow": [
-            "Bash(npm run lint)",
-            "Bash(npm run lint:ci:*)",
-            "Bash(npm install:*)",
-            "Bash(if not exist .vscode mkdir .vscode)",
-            "Bash(npm run format:check:*)",
-            "Bash(npx prettier --help:*)",
-            "Bash(npx prettier:*)"
-        ],
+        "allow": ["Bash(npm:*)", "Bash(npx:*)", "Bash(cmd:*)", "Bash(dir:*)", "Bash(powershell:*)"],
         "deny": [],
         "ask": []
     }
