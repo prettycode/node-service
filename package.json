@@ -8,14 +8,15 @@
     },
     "scripts": {
         "start": "node --env-file=.env src/server.ts",
-        "start:fix": "npm run audit:fix && npm update && npm run lint:fix && npm run format:fix && npm start",
+        "start:fix": "npm run test:fix && npm start",
+        "test": "npm run audit:ci && npm ci && npm run lint:ci && npm run format:ci && tsc --noEmit",
+        "test:fix": "npm run audit:fix && npm install && npm update && npm run lint:fix && npm run format:fix",
         "audit:ci": "npm audit --audit-level=high",
         "audit:fix": "npm audit fix",
         "lint:ci": "eslint . --max-warnings=0",
         "lint:fix": "eslint . --fix",
-        "format:fix": "prettier --write .",
         "format:ci": "prettier --check .",
-        "test": "npm run audit:ci && npm ci && npm run lint:ci && npm run format:ci && tsc --noEmit"
+        "format:fix": "prettier --write ."
     },
     "devDependencies": {
         "@eslint/js": "^9.39.1",
